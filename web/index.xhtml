@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="./resources/css/default.css" rel="stylesheet" type="text/css" />
+        <link href="./resources/css/cssLayout.css" rel="stylesheet" type="text/css" />
+        <title>Contact Management System</title>
+    </h:head>
+
+    <h:body>
+        <div id="top" class="top">
+            <div align="left" style="display: inline-block">
+                <h:graphicImage name="logo.PNG" library="image"/>
+            </div>
+            <div style="display: inline-block;float: right;padding-top: 83px">
+                <ui:include src="header.xhtml"/>
+            </div>
+        </div>
+        <div id="content" class="center_content">
+            <hr/>
+            <br/>
+            <h1>List of Contacts</h1>
+            <h:panelGrid border="1" >
+                <p:dataTable id="dt1" value="#{contactBean.contactsDetails}" var="item" style="border:solid 1px">
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="First Name" />
+                        </f:facet>
+                        <h:outputText value="#{item.firstName}"></h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Last Name" />
+                        </f:facet>
+                        <h:outputText value="#{item.lastName}"></h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Email" />
+                        </f:facet>
+                        <h:outputText value="#{item.email}"></h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Mobile Number" />
+                        </f:facet>
+                        <h:outputText value="#{item.phoneNo}"></h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Company Name" />
+                        </f:facet>
+                        <h:outputText value="#{item.companyName}"></h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Company Location" />
+                        </f:facet>
+                        <h:outputText value="#{item.companyLoc}"></h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Designation" />
+                        </f:facet>
+                        <h:outputText value="#{item.designation}"></h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="LinkedIn URL" />
+                        </f:facet>
+                        <h:outputText value="#{item.linkedInUrl}"></h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Notes" />
+                        </f:facet>
+                        <h:outputText value="#{item.notes}"></h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Added By" />
+                        </f:facet>
+                        <h:outputText value="#{item.addedBy}"></h:outputText>
+                    </p:column>
+                </p:dataTable>
+            </h:panelGrid>
+        </div>
+    </h:body>
+
+</html>

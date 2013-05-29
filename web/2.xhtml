@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+
+        <div style="display:inline-block;float: left; ">
+            <table>
+                <tr>
+                    <td>First Name</td>
+                    <td><p:inputText id="fname" required="true" requiredMessage="Please enter your First Name!" validatorMessage="Alphabets only!"
+                                     value="#{contactBean.firstName}" maxlength="30">
+                            <f:validateRegex pattern="[ a-zA-Z]+"/>
+                        </p:inputText>
+
+                    </td>
+                    <td><p:message for="fname" /></td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td><p:inputText id="lname" required="true" requiredMessage="Please enter your Last Name!"
+                                     value="#{contactBean.lastName}" validatorMessage="Alphabets only!" maxlength="30">
+                            <f:validateRegex pattern="[ a-zA-Z]+"/>
+                        </p:inputText></td>
+                    <td><p:message for="lname" /></td>
+                </tr>
+
+                <tr>
+                    <td>Email</td>
+                    <td>
+                        <p:inputText id="email" required="true" label="email"
+                                     requiredMessage="Please enter your email address!"
+                                     validatorMessage="Invalid email format"
+                                     value="#{contactBean.email}">
+
+                            <f:validateRegex
+                                pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+
+                        </p:inputText>
+                        <!--<p:watermark for="email" value="Email Address *" />-->
+                    </td>
+                    <td>
+                        <p:message for="email" />
+                    </td>
+                </tr>
+                <tr>
+                    <td><h:outputText value="Gender " /></td>  
+                    <td><p:selectOneRadio id="gender" value="#{contactBean.gender}" required="true" requiredMessage="Please select gender!"> 
+                            <f:selectItem itemLabel="Female" itemValue="F"/>
+                            <f:selectItem itemLabel="Male" itemValue="M" />    
+                        </p:selectOneRadio>  
+                    </td>
+                    <td><p:message for="gender" /></td>
+                </tr>
+                <tr>
+                    <td><h:outputText value="Contact No. " />  </td>
+                    <td><p:inputMask id="contactNo" value="#{contactBean.mobNo}" 
+                                     mask="(999) 999-9999? -99999"/> </td>
+                    <td>
+                        <p:message for="contactNo" />
+                    </td>
+
+                </tr>   
+
+                <tr>
+                    <td>Company Name</td>
+                    <td><p:inputText id="comName" required="true" requiredMessage="Please enter your Company name!"
+                                     value="#{contactBean.comName}" validatorMessage="Alphabets only!" maxlength="100">
+                            <f:validateRegex pattern="[ a-zA-Z]+"/>
+                        </p:inputText>
+                    </td>
+                    <td><p:message for="comName" /></td>
+                </tr>
+
+                <tr>
+                    <td>Company Location</td>
+                    <td><p:inputText id="comLoc" required="true" requiredMessage="Please enter your Company location!"
+                                     value="#{contactBean.comLoc}" validatorMessage="Alphabets only!" maxlength="30">
+                            <f:validateRegex pattern="[ a-zA-Z]+"/>
+                        </p:inputText>
+                    </td>
+                    <td><p:message for="comLoc" /></td>
+                </tr>
+                <tr>
+                    <td>Designation</td>
+                    <td><p:inputText id="desgn" required="true" requiredMessage="Please enter your Designation!"
+                                     value="#{contactBean.designation}" maxlength="120">
+                        </p:inputText>
+
+                    </td>
+                    <td><p:message for="desgn" /></td>
+                </tr>
+<!--                <tr>
+                        <td colspan="2">
+                            <p:commandButton value="Add" style="margin:20px; width: 100px;height:40px "
+                                             action="#{contactBean.addContact()}" ajax="false" />
+                            <p:commandButton value="Cancel" style="margin:20px; width: 100px;height:40px "
+                                             action="#{contactBean.addContact()}" ajax="false" />
+                        </td>
+                    </tr>-->
+            </table>
+        </div>
+        <div style="display:inline-block;padding-left: 46%">
+            <table>
+                <tr>
+                    <td>LinkedIn URL</td>
+                    <td>
+                        <p:inputText id="linkedin"
+                                     value="#{contactBean.url}" validatorMessage="Please enter valid linkedIn URL!" maxlength="256">
+                            <f:validateRegex pattern="^$|^(http://)?[A-Za-z]*\.linkedin.com\/[\.A-Za-z0-9\-\/]*$"/>
+                        </p:inputText>
+                    </td>
+                    <td><p:message for="linkedin" /></td>
+                </tr>
+                <tr>
+                    <td>Area of Interest</td>
+                    <td><p:inputText id="areaOfInt"></p:inputText></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td valign="top">Notes</td>
+                    <td>
+                        <p:inputTextarea rows="5" cols="20" value="#{contactBean.notes}" counter="counter" maxlength="150"       
+                                         counterTemplate="{0} characters remaining." autoResize="false"/>  
+                        <br/><h:outputText id="counter"  /> 
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>                    
+                    <td>Contact Added By</td>
+                    <td><p:inputText id="addedBy" required="true" requiredMessage="Please enter your name!"
+                                     value="#{contactBean.addedBy}" validatorMessage="Alphabets only!"></p:inputText></td>
+                    <td><p:message for="addedBy" /></td>
+                </tr>   
+            </table>
+        </div>
+
+
+    </h:body>
+</html>
+

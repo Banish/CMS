@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 28, 2013 12:43:59 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="contactmanagementsystem" name="entities.Contactrelation" table="contactrelation">
+    <id name="contactRelationId" type="java.lang.Integer">
+      <column name="contactRelationId"/>
+      <generator class="identity"/>
+    </id>
+    <property name="contactlistId" type="java.lang.Integer">
+      <column name="contactlistId"/>
+    </property>
+    <property name="rating" type="java.lang.Integer">
+      <column name="rating"/>
+    </property>
+    <property name="notes" type="string">
+      <column length="300" name="notes"/>
+    </property>
+  </class>
+</hibernate-mapping>
